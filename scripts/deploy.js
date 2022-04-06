@@ -13,11 +13,10 @@ async function main() {
   const NFT = await hre.ethers.getContractFactory("NFT");
   const nft = await NFT.deploy(marketPlace.address);
   await nft.deployed();
-  const initialSupply = hre.ethers.BigNumber.from('1000000000000000000000000'); // value in wei
 
   const EYtoken = await hre.ethers.getContractFactory("EYToken");
   console.log("EYToken Deploying....")
-  const token = await EYtoken.deploy(initialSupply);
+  const token = await EYtoken.deploy();
   await token.deployed();
 
   console.log("NFT deployed to", nft.address);

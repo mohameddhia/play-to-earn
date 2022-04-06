@@ -1,7 +1,7 @@
 require("@nomiclabs/hardhat-waffle");
 require("dotenv").config()
 const fs = require("fs");
-
+require('hardhat-abi-exporter');
 const privateKey = process.env.PRIVATE_KEY
 
 module.exports = {
@@ -27,5 +27,15 @@ module.exports = {
   etherscan: {
     apiKey: process.env.ETHERSCAN_API_KEY,
   },
+  abiExporter: [
+    {
+      path: './abi/pretty',
+      pretty: true,
+    },
+    {
+      path: './abi/ugly',
+      pretty: false,
+    },
+  ]
 };
 

@@ -40,7 +40,7 @@ contract EYToken is ERC20 {
     uint8 public constant decimals = 18;
 
     //1,000,000+18 zeros
-    uint256 private __totalSupply;
+    uint256 private constant __totalSupply = 1000000000000000000000000;
 
     //this mapping is where we store the balances of an address
     mapping(address => uint256) private __balanceOf;
@@ -49,8 +49,8 @@ contract EYToken is ERC20 {
     mapping(address => mapping(address => uint256)) private __allowances;
 
     //the creator of the contract has the total supply and no one can create tokens
-    constructor(uint256 supply) {
-        __totalSupply = supply;
+    constructor() public {
+        __balanceOf[msg.sender] = __totalSupply;
     }
 
     //constant value that does not change/  returns the amount of initial tokens to display
