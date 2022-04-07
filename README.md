@@ -17,12 +17,13 @@ npx hardhat help
 ```
 
 ## ENV file  creation 
+```shell
 create .env file 
 PRIVATE_KEY= 
 RINKEBY_URI= 
 TOTAL_SUPPLY= 
 ETHERSCAN_API_KEy=
-
+```
 ## to deploy on Rinkeby :
 
 npx hardhat run scrips/depooy.js --network rinkeby
