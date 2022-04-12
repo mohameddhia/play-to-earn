@@ -30,3 +30,8 @@ npx hardhat run scrips/depooy.js --network rinkeby
 
 ## export ABI to be used on other projects
 npx hardhat export-abi
+
+## all smartcontracts documentation is docs directory index.html
+```shell
+npx hardhat docgen
+```
