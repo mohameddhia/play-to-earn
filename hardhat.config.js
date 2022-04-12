@@ -3,6 +3,7 @@ require("dotenv").config()
 const fs = require("fs");
 require('hardhat-abi-exporter');
 const privateKey = process.env.PRIVATE_KEY
+require('hardhat-docgen');
 
 module.exports = {
   defaultNetwork: "hardhat",
@@ -36,6 +37,11 @@ module.exports = {
       path: './abi/ugly',
       pretty: false,
     },
-  ]
+  ],
+  docgen: {
+    path: './docs',
+    clear: true,
+    runOnCompile: true,
+  },
 };
 
