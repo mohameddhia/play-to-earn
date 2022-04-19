@@ -43,12 +43,27 @@ contract GameContract is ReentrancyGuard {
     mapping(address => uint256) public playerBalances;
     mapping(string => Game) public games;
     mapping(GameOutcome => string) public outcomes;
+    mapping(address => uint256) public lockTime;
 
     constructor() {
         outcomes[GameOutcome.draw] = "draw";
         outcomes[GameOutcome.playerOne] = "playerOne";
         outcomes[GameOutcome.playerTwo] = "playerTwo";
     }
+
+    // function requestTokens(address requestor, uint256 amount) external {
+    //     //perform a few check to make sure function can execute
+    //     require(
+    //         block.timestamp > lockTime[msg.sender],
+    //         "lock time has not expired. Please try again later"
+    //     );
+
+    //     //mint tokens
+    //     _mint(requestor, amount);
+
+    //     //updates locktime 1 day from now
+    //     lockTime[msg.sender] = block.timestamp + 1 days;
+    // }
 
     function compareStrings(string memory a, string memory b)
         public
